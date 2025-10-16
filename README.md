@@ -10,6 +10,7 @@
   ```bash
   npx cypress run
 
+
 # Documents
 [Git strategy](docs/git-strategy.md)
 [Hotkeys](docs/hotkeys.md)
