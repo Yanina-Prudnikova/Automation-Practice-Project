@@ -6,8 +6,9 @@
   ```bash
   npx cypress open
 
-# Headless mode
-npx cypress run
+- Headless mode:  
+  ```bash
+  npx cypress run
 
 # Documents
 [Git strategy](docs/git-strategy.md)
