@@ -1,0 +1,10 @@
+{
+  "en": {
+    "appTitle": "Swag Labs",
+    "login_error_locked": "Sorry, this user has been locked out."
+  },
+  "ru": {
+    "appTitle": "Swag Labs (RU)",
+    "login_error_locked": "Извините, этот пользователь заблокирован."
+  }
+}

@@ -1,17 +1,17 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+// cypress/support/e2e.js
+// глобальные импорты и привязки к объекту Cypress
 
-// Import commands.js using ES2015 syntax:
-import './commands'
+// CommonJS require — максимально совместимо
+const selectors = require('./selectors');
+const urls = require('./urls');
+const l10n = require('./l10n.json');
+const requirements = require('./requirements');
+
+// делаем доступными глобально через Cypress.*
+Cypress.Selectors = selectors;
+Cypress.Urls = urls;
+Cypress.L10n = l10n;
+Cypress.Requirements = requirements;
+
+// Доп. команды (если есть)
+require('./commands'); // если у тебя есть commands.js
