@@ -1,13 +1,14 @@
 {
   "name": "automation-practice-project",
   "version": "1.0.0",
-  "description": "- Debug mode:  \r   ```bash\r   npx cypress open",
+  "description": "Automation practice project with Cypress",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -27,3 +28,4 @@
     "prettier": "^3.6.2"
   }
 }
+
