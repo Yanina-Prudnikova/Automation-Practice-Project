@@ -6,8 +6,10 @@ module.exports = {
     submitBtn: '#login-button',
   },
   products: {
-    productTitle: '.product_label', // example
+    productTitle: '.inventory_item_name', // product title on inventory page
+    inventoryList: '.inventory_list',
     cartIcon: '.shopping_cart_link',
+    addToCart: 'button[data-test^="add-to-cart"]',
   },
   common: {
     headerTitle: '.title',

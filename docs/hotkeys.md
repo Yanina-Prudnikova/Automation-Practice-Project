@@ -1,4 +1,4 @@
-| Action              | Shortcut (VS Code) |
+| Action              | Shortcut (VS Code)   |
 | ------------------- | -------------------- |
 | Project search      | `Ctrl + Shift + F`   |
 | File search         | `Ctrl + P`           |

@@ -1,3 +1,19 @@
+// cypress/support/commands.js
+// Reusable custom commands for tests
+
+// login command: accepts a username key. Prefer Cypress.env('users') or CI secrets.
+Cypress.Commands.add('login', (userKey = 'standard_user') => {
+  // Preferred: provide credentials via Cypress environment (CI or local)
+  // Example: set Cypress env var `users` to { standard_user: { username, password } }
+  const envUsers = Cypress.env('users');
+  const defaultCreds = { username: 'standard_user', password: 'secret_sauce' };
+  const user = (envUsers && envUsers[userKey]) || defaultCreds;
+
+  cy.visit(Cypress.Urls.login);
+  cy.get(Cypress.Selectors.login.username).clear().type(user.username);
+  cy.get(Cypress.Selectors.login.password).clear().type(user.password);
+  cy.get(Cypress.Selectors.login.submitBtn).click();
+});
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
