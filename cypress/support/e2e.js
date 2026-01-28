@@ -1,17 +1,17 @@
 // cypress/support/e2e.js
-// глобальные импорты и привязки к объекту Cypress
+// global imports and bindings to the Cypress object
 
-// CommonJS require — максимально совместимо
+// CommonJS require — maximally compatible
 const selectors = require('./selectors');
 const urls = require('./urls');
 const l10n = require('./l10n.json');
 const requirements = require('./requirements');
 
-// делаем доступными глобально через Cypress.*
+// expose these globally via Cypress.*
 Cypress.Selectors = selectors;
 Cypress.Urls = urls;
 Cypress.L10n = l10n;
 Cypress.Requirements = requirements;
 
-// Доп. команды (если есть)
-require('./commands'); // если у тебя есть commands.js
+// Additional commands (if any)
+require('./commands'); // if you have commands.js

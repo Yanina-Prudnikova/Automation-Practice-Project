@@ -1,6 +1,9 @@
 # Test Writing Guideline
+
 ## Rules:
-### Naming Conventions: 
+
+### Naming Conventions:
+
 - Follow the established naming conventions.
 
 ### Test Independence:
@@ -20,44 +23,54 @@
 - Provide Skipped Empty Context and it Blocks: Track test coverage by providing descriptions for non-automated use cases, marking them as skipped:
 
 it.skip('Should display an error when submitting invalid data', () => {
-  // Not implemented yet
+// Not implemented yet
 });
-### No Hard-Coded Values in Tests: 
+
+### No Hard-Coded Values in Tests:
+
 - Store all parameters that characterize the app (requirements, localization values, implementation details, selectors, etc.) in separate files and variables. Write tests that are easy to read and understand.
 
-### Do Not Hide Selectors: 
+### Do Not Hide Selectors:
+
 - Store selectors in the selectors.js file, grouped by pages and components. For example:
 
 cy.get(cartPage.continueShopping).click();
 This makes it easy to find and update selectors when needed.
 
-### Use Gherkin Keywords: 
+### Use Gherkin Keywords:
+
 - Use Gherkin keywords to describe test scenarios and steps. This helps in understanding the test flow and makes it easier to communicate with non-technical stakeholders.
 
-### Test Data Isolation: 
+### Test Data Isolation:
+
 - Keep test data isolated for each test file.
 
-### Test Data Management: 
+### Test Data Management:
+
 - Store test data in dedicated files under the cypress/test-data/ directory, organized by feature or flow.
 
-### Test Data Randomization: 
+### Test Data Randomization:
+
 - Generate random test data rather than using the same data across tests.
 
-### External Resource Handling: 
+### External Resource Handling:
+
 - When testing links to external resources:
 
 - Remove the target attribute to keep navigation in the same window.
 - Handle uncaught exceptions appropriately.
 - Return to the application using cy.go('back').
-Example:
+  Example:
 
 cy.get(selector).invoke('removeAttr', 'target');
 cy.on('uncaught:exception', () => false); // Prevent test failure
 
-### Track Issues: 
+### Track Issues:
+
 - Document issues in the GitHub issue tracker and mark affected code with comments:
 
 // TODO: link to the issue description
 
-### Custom Commands: 
+### Custom Commands:
+
 - Create reusable custom commands for common operations.

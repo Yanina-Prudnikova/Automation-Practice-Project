@@ -1,208 +1,168 @@
 /**
  * cypress/integration/ui/login-page.ui.spec.js
  *
- * Спецификация (use-cases) для страницы логина — ПОРЯДОК и ОПИСАНИЕ шагов,
- * без реализации (без cy.*). Для каждого it — пошаговый план проверки.
- *
- * Примечание: тесты помечены it.skip чтобы не выполнять (пока не реализованы).
- * При реализации: убирай .skip и заменяй комментарии на реальные действия.
+ * Specification (use-cases) for the Login Page — steps only (no cy.*).
+ * Tests are intentionally skipped (`it.skip`) until implemented.
  */
 
-describe('UI: Login page — Use cases (specification only)', () => {
-  /**
-   * 1. Smoke / Sanity
-   *  - Проверить, что страница логина открывается и основные элементы видны.
-   */
-  it.skip('Smoke: page loads and main elements are visible', () => {
-    // Preconditions:
-    //  - Открыть страницу логина (baseUrl + путь)
-    // Steps:
-    //  1. Перейти на страницу логина.
-    //  2. Проверить видимость логотипа / заголовка.
-    //  3. Проверить, что присутствуют поля Username, Password, кнопка Login.
-    //  4. Проверить, что элементы имеют корректные атрибуты (placeholder, type="password" для поля пароля).
-    // Expected:
-    //  - Все перечисленные элементы видимы и доступны для взаимодействия.
+describe('Login Page', () => {
+  // 1. Smoke / Sanity
+  context('on initial load', () => {
+    it.skip('displays main elements on load', () => {
+      // Preconditions:
+      //  - Open login page (baseUrl + path)
+      // Steps:
+      //  1. Go to login page.
+      //  2. Verify logo/header visible.
+      //  3. Verify Username, Password fields and Login button exist.
+      //  4. Verify attributes (placeholder, type="password").
+      // Expected: elements visible and interactive.
+    });
   });
 
-  /**
-   * 2. Positive: успешный вход с корректными данными
-   */
-  it.skip('Positive: successful login with valid credentials', () => {
-    // Preconditions:
-    //  - Тестовый пользователь зарегистрирован (username, password заранее известны).
-    // Steps:
-    //  1. Перейти на страницу логина.
-    //  2. Ввести корректный username.
-    //  3. Ввести корректный password.
-    //  4. Нажать Login.
-    //  5. Подождать перехода на страницу продуктов / дашборда.
-    // Expected:
-    //  - URL изменился на inventory/dashboard.
-    //  - Появился элемент, указывающий на успешный вход (например, заголовок "Products").
-    // TODO: https://github.com/Yanina-Prudnikova/Automation-Practice-Project/issues/4
+  // 2. Positive
+  context('with valid credentials', () => {
+    it.skip('logs in with valid credentials and shows products', () => {
+      // Preconditions: test user exists (username/password known).
+      // Steps:
+      //  1. Go to login page.
+      //  2. Enter valid username and password.
+      //  3. Click Login.
+      //  4. Wait for navigation to products/dashboard.
+      // Expected: URL includes /inventory.html and "Products" is visible.
+    });
   });
 
-  /**
-   * 3. Negative: неправильный логин/пароль
-   */
-  it.skip('Negative: login fails with invalid credentials (wrong password)', () => {
-    // Steps:
-    //  1. Перейти на страницу логина.
-    //  2. Ввести корректный username.
-    //  3. Ввести некорректный password.
-    //  4. Нажать Login.
-    // Expected:
-    //  - Показано корректное сообщение об ошибке (и текст сообщения соответствует l10n).
-    //  - Пользователь остаётся на странице логина.
+  // 3. Negative
+  context('with invalid credentials', () => {
+    it.skip('shows error for incorrect password', () => {
+      // Steps:
+      //  1. Enter valid username and wrong password.
+      //  2. Click Login.
+      // Expected: correct error message and remain on login page.
+    });
+
+    it.skip('shows error for invalid username', () => {
+      // Steps:
+      //  1. Enter non-existent username.
+      //  2. Enter any password and submit.
+      // Expected: appropriate error message.
+    });
   });
 
-  it.skip('Negative: login fails with invalid username', () => {
-    // Steps:
-    //  1. Ввести несуществующий username.
-    //  2. Ввести любой пароль.
-    // Expected:
-    //  - Появление ошибки 'user not found' или общий текст ошибки.
+  // 4. Validation
+  context('with missing fields', () => {
+    it.skip('shows validation error when username is empty', () => {
+      // Steps:
+      //  1. Leave username empty, fill password.
+      //  2. Click Login.
+      // Expected: validation error for username.
+    });
+
+    it.skip('shows validation error when password is empty', () => {
+      // Steps:
+      //  1. Fill username, leave password empty.
+      //  2. Click Login.
+      // Expected: validation error for password.
+    });
   });
 
-  /**
-   * 4. Validation: пустые поля, частичные заполнения
-   */
-  it.skip('Validation: login blocked when username is empty', () => {
-    // Steps:
-    //  1. Оставить поле username пустым, заполнить password.
-    //  2. Нажать Login.
-    // Expected:
-    //  - Показано сообщение о пустом username / поле помечено как required.
+  // 5. Locked accounts
+  context('when user is locked out', () => {
+    it.skip('shows account locked message for locked user', () => {
+      // Preconditions: locked_out_user exists in env-users.
+      // Steps: attempt login with locked_out_user.
+      // Expected: exact locked account message.
+    });
   });
 
-  it.skip('Validation: login blocked when password is empty', () => {
-    // Steps:
-    //  1. Заполнить username, оставить password пустым.
-    //  2. Нажать Login.
-    // Expected:
-    //  - Показано сообщение о пустом password / поле помечено как required.
+  // 6. UI behaviour
+  context('UI interactions', () => {
+    it.skip('toggles password visibility when requested', () => {
+      // Steps:
+      //  1. Type password.
+      //  2. Click show/hide icon.
+      // Expected: input type toggles between "text" and "password".
+    });
+
+    it.skip('submits form when pressing Enter in password field', () => {
+      // Steps:
+      //  1. Type username and password.
+      //  2. Press Enter in password field.
+      // Expected: form submitted, same as clicking Login.
+    });
   });
 
-  /**
-   * 5. Locked / blocked accounts and special server responses
-   */
-  it.skip('Negative: locked out user receives locked message', () => {
-    // Preconditions:
-    //  - У нас есть учётка locked_out_user в env-users file.
-    // Steps:
-    //  1. Попытка входа под locked_out_user.
-    // Expected:
-    //  - Появляется точное сообщение о блокировке.
+  // Accessibility
+  context('for keyboard and screen readers', () => {
+    it.skip('is keyboard accessible and has proper labels', () => {
+      // Steps:
+      //  1. Verify fields have aria-label or associated <label>.
+      //  2. Verify tab order.
+      // Expected: keyboard accessibility and correct labeling.
+    });
   });
 
-  /**
-   * 6. UI behaviour: show/hide password, tab order, enter key
-   */
-  it.skip('UI: password visibility toggle works (show/hide)', () => {
-    // Steps:
-    //  1. Ввести пароль.
-    //  2. Нажать иконку "показать пароль".
-    // Expected:
-    //  - Тип поля меняется на text при показе и обратно на password при скрытии.
+  // 7. Security / edge cases
+  context('with malicious or edge-case input', () => {
+    it.skip('handles extremely long credentials safely', () => {
+      // Steps: enter very long strings for username/password.
+      // Expected: app doesn't crash; proper handling or truncation.
+    });
+
+    it.skip('does not crash on common injection-like input', () => {
+      // Steps: enter <script> or SQL-like payloads.
+      // Expected: no XSS or 500 server errors.
+    });
+
+    it.skip('applies throttling or captcha after repeated failures', () => {
+      // Steps: perform N failed attempts as per requirements.
+      // Expected: system applies throttle/captcha according to requirements.
+    });
   });
 
-  it.skip('UI: pressing Enter submits the login form', () => {
-    // Steps:
-    //  1. Ввести username & password.
-    //  2. Нажать Enter в поле password.
-    // Expected:
-    //  - Форма отправлена, поведение соответствует клику по Login.
+  // 8. Links and navigation
+  context('via navigation links', () => {
+    it.skip('navigates to password reset from Forgot password link', () => {
+      // Steps: click "Forgot password".
+      // Expected: navigate to reset flow or open modal.
+    });
+
+    it.skip('navigates to registration from Create account link', () => {
+      // Steps: click "Create account" (if present).
+      // Expected: registration form opens.
+    });
   });
 
-  it.skip('Accessibility: login page basic a11y checks', () => {
-    // Steps:
-    //  1. Проверить, что поля имеют aria-label / связаны с <label>.
-    //  2. Проверить, что таб-индекс логичен (tab order).
-    // Expected:
-    //  - Элементы доступны с клавиатуры, экранные ридеры видят лейблы.
+  // 9. Localization
+  context('for selected locale', () => {
+    it.skip('shows messages and labels according to selected locale', () => {
+      // Preconditions: locale can be switched or use default (en).
+      // Steps: set locale and trigger error.
+      // Expected: messages match l10n.json.
+    });
   });
 
-  /**
-   * 7. Security / edge cases: long input, SQL injection-like string, rate-limiting
-   */
-  it.skip('Security: extremely long username/password are handled safely', () => {
-    // Steps:
-    //  1. Ввести очень длинную строку в username / password.
-    // Expected:
-    //  - Приложение не падает, показывает корректную ошибку или обрезает.
+  // 10. Session
+  context('session handling', () => {
+    it.skip('creates session on login and clears it on logout', () => {
+      // Steps:
+      //  1. Login with valid credentials.
+      //  2. Verify session cookie/localStorage.
+      //  3. Click logout.
+      // Expected: cookies/localStorage cleared and returned to login page.
+    });
   });
 
-  it.skip('Security: common injection patterns do not cause server error', () => {
-    // Steps:
-    //  1. Ввести <script> / SQL-like payload в поля.
-    // Expected:
-    //  - Сервер отвечает корректно; нет XSS/500.
+  // 11. Responsive
+  context('mobile viewport', () => {
+    it.skip('is usable on small viewport', () => {
+      // Steps: set mobile viewport and inspect layout.
+      // Expected: fields/buttons accessible and not overlapped.
+    });
   });
 
-  it.skip('Throttling / brute-force: repeated failed attempts show throttle or captcha', () => {
-    // Steps:
-    //  1. Выполнить N неуспешных попыток (N описать в requirements).
-    // Expected:
-    //  - Система применяет блокировку/капчу/задержку согласно требованиям.
-  });
-
-  /**
-   * 8. Links and navigation: forgot password, create account, social login
-   */
-  it.skip('Navigation: Forgot password link opens reset flow', () => {
-    // Steps:
-    //  1. Нажать "Forgot password".
-    // Expected:
-    //  - Переход на страницу восстановления пароля или открытие модального окна.
-  });
-
-  it.skip('Navigation: Sign up / Create account link navigates to registration', () => {
-    // Steps:
-    //  1. Нажать "Create account" (если есть).
-    // Expected:
-    //  - Открывается форма регистрации.
-  });
-
-  /**
-   * 9. Localization: error messages and labels match selected locale
-   */
-  it.skip('L10n: texts (errors/labels) correspond to selected locale', () => {
-    // Preconditions:
-    //  - Локаль может быть переключена, либо проверяем default (en).
-    // Steps:
-    //  1. Установить локаль (если есть переключатель) или использовать дефолт.
-    //  2. Выполнить действие приводящее к ошибке.
-    // Expected:
-    //  - Сообщение об ошибке соответствует записям в l10n.json.
-  });
-
-  /**
-   * 10. Session and logout: ensure login creates session / cookie and logout clears it
-   */
-  it.skip('Session: logging in creates expected session/cookie; logout clears it', () => {
-    // Steps:
-    //  1. Войти с валидными учетными данными.
-    //  2. Проверить наличие сессионной куки / localStorage item.
-    //  3. Нажать logout.
-    // Expected:
-    //  - Куки/локаlStorage удалены, пользователь возвращён на страницу логина.
-  });
-
-  /**
-   * 11. Cross-browser / responsive considerations (short checklist)
-   */
-  it.skip('Responsive: login page is usable on small viewport (mobile)', () => {
-    // Steps:
-    //  1. Установить viewport в мобильный режим.
-    //  2. Проверить, что поля и кнопки доступны и не перекрываются.
-    // Expected:
-    //  - Верстка адаптирована, элементы кликабельны.
-  });
-
-  /**
-   * 12. Cleanup / notes for implementation
-   *  - Для каждого теста: указать данные (fixtures / env-users), зависимости и требования.
-   *  - При реализации: использовать Cypress.Commands или fixtures чтобы не дублировать код.
-   */
+  // 12. Notes
+  // For each test: specify fixtures/env-users, dependencies and requirements.
+  // When implementing: use Cypress.Commands or fixtures to avoid duplication.
 });

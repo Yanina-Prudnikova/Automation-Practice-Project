@@ -1,12 +1,11 @@
 /// <reference types="cypress" />
 
 // ===============================
-// 1. Первый context — РЕАЛИЗОВАН
+// 1. First context — IMPLEMENTED
 // ===============================
 context('Login Page - UI Validation', () => {
-  
   beforeEach(() => {
-    cy.visit(Cypress.Urls.login); // глобальная переменная из e2e.js
+    cy.visit(Cypress.Urls.login); // global variable from e2e.js
   });
 
   it('Username field is visible', () => {
@@ -26,11 +25,10 @@ context('Login Page - UI Validation', () => {
   it('Page title text is visible', () => {
     cy.contains(Cypress.L10n.en.appTitle).should('exist');
   });
-
 });
 
 // ==================================================
-// 2. Все остальные context — ПОМЕЧЕНЫ КАК SKIPPED
+// 2. All other contexts are marked as SKIPPED
 // ==================================================
 context.skip('Login Page - Positive Login', () => {
   // TODO: https://github.com/Yanina-Prudnikova/Automation-Practice-Project/issues/4
