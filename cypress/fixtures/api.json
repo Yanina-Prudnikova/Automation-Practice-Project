@@ -1,0 +1,12 @@
+{
+  "baseUrl": "https://restful-booker.herokuapp.com",
+  "sampleBooking": {
+    "firstname": "Test",
+    "lastname": "User",
+    "totalprice": 123,
+    "depositpaid": false,
+    "bookingdates": { "checkin": "2025-01-01", "checkout": "2025-01-10" },
+    "additionalneeds": "Breakfast"
+  },
+  "auth": { "username": "admin", "password": "password123" }
+}
